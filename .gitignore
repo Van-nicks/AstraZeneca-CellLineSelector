@@ -1,0 +1,64 @@
+# Data
+data/
+outputs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+.env/
+
+# Environment / Secrets (CRITICAL)
+.env
+*.env
+secrets.yaml
+**/secrets/
+.groq_key
+.openai_key
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# macOS
+.DS_Store
+**/.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Processed / Generated files
+data/processed/
+*.parquet
+*.feather
+*.pkl
+*.h5
+*.h5ad
+
+# Logs
+logs/
+*.log
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Streamlit
+.streamlit/secrets.toml

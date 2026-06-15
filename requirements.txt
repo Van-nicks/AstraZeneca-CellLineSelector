@@ -1,0 +1,52 @@
+# Core Data Science
+pandas==2.2.3
+numpy==2.4.6
+scipy==1.17.1
+scikit-learn==1.9.0
+
+# File Format Support
+pyarrow==24.0.0          # parquet read/write
+fastparquet==2026.5.0    # parquet alternative
+openpyxl==3.1.5          # excel support if needed
+h5py==3.16.0             # .h5 file support
+anndata==0.12.16         # .h5ad single-cell format
+
+# Bioinformatics
+GEOparse==2.0.4          # GEO dataset ingestion
+biopython==1.87          # biological data utilities
+
+# Entity Resolution / Fuzzy Matching
+rapidfuzz==3.14.5           # fast fuzzy string matching
+thefuzz==0.22.1             # fuzzy matching fallback
+python-Levenshtein==0.27.3  # speeds up thefuzz significantly
+
+# Normalisation / Batch Correction
+statsmodels==0.14.6      # statistical modelling
+
+# Visualisation
+matplotlib==3.11.0
+seaborn==0.13.2
+plotly==6.8.0
+
+# API Backend
+fastapi==0.137.1
+uvicorn==0.49.0
+pydantic==2.13.4
+
+# Web UI
+streamlit==1.58.0
+
+# Config & Utilities
+pyyaml==6.0.3            # read settings.yaml
+python-dotenv==1.2.2     # load .env files for API keys
+tqdm==4.68.2             # progress bars
+loguru==0.7.3            # better logging than print()
+rich==15.0.0             # pretty terminal output
+
+# Export / Reports
+reportlab==4.5.1         # PDF generation
+jinja2==3.1.6            # HTML report templates
+
+# Testing
+pytest==9.1.0
+pytest-cov==7.1.0        # test coverage reports
