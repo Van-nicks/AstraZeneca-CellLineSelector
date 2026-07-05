@@ -6,6 +6,7 @@
 # =============================================================
 
 import pandas as pd
+
 pd.options.mode.copy_on_write = True
 
 from src.utils import load_config, get_logger, get_path, ensure_processed_dir, save_parquet
@@ -32,7 +33,7 @@ def log_duplicate_profile_decision(profile_lookup: pd.DataFrame):
     dup_counts = profile_lookup.groupby("DepMap_ID")["ProfileID"].count()
     duplicated = dup_counts[dup_counts > 1]
     log.info(f"{len(duplicated)} ACH-IDs have multiple RNA profiles with no "
-              f"tiebreaker metadata available — expression values will be averaged")
+             f"tiebreaker metadata available — expression values will be averaged")
 
 
 def ingest_depmap_expression() -> pd.DataFrame:
@@ -42,7 +43,7 @@ def ingest_depmap_expression() -> pd.DataFrame:
     log.info("Loading DepMap expression matrix (large file — this may take a moment)...")
     expr_df = pd.read_csv(expr_path)
     expr_df = expr_df.rename(columns={"Unnamed: 0": "ProfileID"})
-    log.info(f"Loaded expression matrix: {expr_df.shape[0]:,} profiles x {expr_df.shape[1]-1:,} genes")
+    log.info(f"Loaded expression matrix: {expr_df.shape[0]:,} profiles x {expr_df.shape[1] - 1:,} genes")
 
     log_duplicate_profile_decision(profile_lookup)
 
@@ -59,7 +60,7 @@ def ingest_depmap_expression() -> pd.DataFrame:
     expression_by_ach = merged.groupby("DepMap_ID").mean(numeric_only=True)
 
     log.info(f"Final expression matrix: {expression_by_ach.shape[0]:,} unique ACH-IDs "
-              f"x {expression_by_ach.shape[1]:,} genes (duplicates averaged)")
+             f"x {expression_by_ach.shape[1]:,} genes (duplicates averaged)")
 
     return expression_by_ach
 
